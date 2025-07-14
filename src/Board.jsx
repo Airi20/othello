@@ -146,26 +146,24 @@ export default function Board() {
                 alignItems: "center",
                 cursor: gameOver ? "default" : "pointer",
                 position: "relative",
-                }}
-
-
+              }}
               title={canPlace(board, r, c, turn) ? "ここに置けます" : ""}
             >
-                {canPlace(board, r, c, turn) && !gameOver && (
-            <div
-            style={{
-                position: "absolute",
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                backgroundColor: "rgba(255, 255, 0, 0.6)",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                pointerEvents: "none",
-            }}
-            />
-        )}
+              {canPlace(board, r, c, turn) && !gameOver && (
+                <div
+                  style={{
+                    position: "absolute",
+                    width: 12,
+                    height: 12,
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(255, 255, 0, 0.6)",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    pointerEvents: "none",
+                  }}
+                />
+              )}
               {cell && (
                 <div
                   style={{
@@ -182,6 +180,29 @@ export default function Board() {
         )}
       </div>
       <div style={{ fontWeight: "bold", fontSize: "18px" }}>{message}</div>
+
+      {/* ここからもう一回やるボタン */}
+      {gameOver && (
+        <button
+          onClick={() => {
+            setBoard(createInitialBoard());
+            setTurn("black");
+            setGameOver(false);
+            setMessage("黒のターン");
+          }}
+          style={{
+            marginTop: 16,
+            padding: "8px 16px",
+            fontSize: 16,
+            cursor: "pointer",
+            borderRadius: 8,
+            backgroundColor: "#ddd",
+            border: "none",
+          }}
+        >
+          もう一回やる
+        </button>
+      )}
     </div>
   );
 }
