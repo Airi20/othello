@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #2e7d32;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  grid-template-rows: repeat(8, 40px);
+  gap: 2px;
+  background-color: black;
+  padding: 4px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  background-color: #4caf50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.disc {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.disc.black {
+  background-color: black;
+}
+
+.disc.white {
+  background-color: white;
+  border: 1px solid #ccc;
+}
